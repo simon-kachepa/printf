@@ -37,6 +37,9 @@ int _printf(const char *format, ...)
 					bns_putchar(format[bns_index + 1]);
 					bns_index++;
 					break;
+				default:
+					bns_putchar(format[bns_index]);
+					bns_index++;
 			}
 		}
 		bns_count++;
