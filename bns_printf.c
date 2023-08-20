@@ -14,35 +14,36 @@ int _printf(const char *format, ...)
 
 	va_start(bns_list, format);
 
-	for (bns_index = 0; format[bns_index] != '\0'; bns_index++)
+	if (format)
 	{
-		if (format[bns_index] != '%')
+		for (bns_index = 0; format[bns_index] != '\0'; bns_index++)
 		{
-			bns_putchar(format[bns_index]);
-		}
-		else
-		{
-			switch (format[bns_index + 1])
+			if (format[bns_index] != '%')
+				bns_putchar(format[bns_index]);
+			else
 			{
-				case 'c':
-					bns_putchar(va_arg(bns_list, int));
-					bns_index++;
-					break;
-				case 's':
-					bns_str_count = bns_puts(va_arg(bns_list, char *));
-					bns_index++;
-					bns_count = (bns_count + bns_str_count - 1);
-					break;
-				case '%':
-					bns_putchar(format[bns_index + 1]);
-					bns_index++;
-					break;
-				default:
-					bns_putchar(format[bns_index]);
-					bns_index++;
+				switch (format[bns_index + 1])
+				{
+					case 'c':
+						bns_putchar(va_arg(bns_list, int));
+						bns_index++;
+						break;
+					case 's':
+						bns_str_count = bns_puts(va_arg(bns_list, char *));
+						bns_index++;
+						bns_count = (bns_count + bns_str_count - 1);
+						break;
+					case '%':
+						bns_putchar(format[bns_index + 1]);
+						bns_index++;
+						break;
+					default:
+						bns_putchar(format[bns_index]);
+						bns_index++;
+				}
 			}
+			bns_count++;
 		}
-		bns_count++;
 	}
 
 	va_end(bns_list);
