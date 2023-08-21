@@ -13,17 +13,16 @@ int _printf(const char *format, ...)
 	va_list bns_list;
 
 	va_start(bns_list, format);
-
 	if (!format)
 		return (-1);
 	for (bns_index = 0; format[bns_index] != '\0'; bns_index++)
 	{
 		if (format[bns_index] != '%')
-		{
 			bns_putchar(format[bns_index]);
-		}
 		else
 		{
+			if (format[bns_index + 1] == '\0')
+				return (-1);
 			switch (format[bns_index + 1])
 			{
 				case 'c':
@@ -46,7 +45,6 @@ int _printf(const char *format, ...)
 		}
 		bns_count++;
 	}
-
 	va_end(bns_list);
 	return (bns_count);
 }
