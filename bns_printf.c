@@ -14,12 +14,19 @@ int _printf(const char *format, ...)
 
 	va_start(bns_list, format);
 
-	if (format)
+	if (!format)
+		return (-1);
+	for (bns_index = 0; format[bns_index] != '\0'; bns_index++)
 	{
-		for (bns_index = 0; format[bns_index] != '\0'; bns_index++)
+		if (format[bns_index] != '%')
 		{
-			if (format[bns_index] != '%')
-				bns_putchar(format[bns_index]);
+			bns_putchar(format[bns_index]);
+			bns_index++;
+		}
+		else
+		{
+			if (format[bns_index + 1] == '\0')
+					return (-1);
 			else
 			{
 				switch (format[bns_index + 1])
@@ -42,8 +49,8 @@ int _printf(const char *format, ...)
 						bns_index++;
 				}
 			}
-			bns_count++;
 		}
+		bns_count++;
 	}
 
 	va_end(bns_list);
