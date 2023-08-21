@@ -25,29 +25,24 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			if (format[bns_index + 1] == '\0')
-					return (-1);
-			else
+			switch (format[bns_index + 1])
 			{
-				switch (format[bns_index + 1])
-				{
-					case 'c':
-						bns_putchar(va_arg(bns_list, int));
-						bns_index++;
-						break;
-					case 's':
-						bns_str_count = bns_puts(va_arg(bns_list, char *));
-						bns_index++;
-						bns_count = (bns_count + bns_str_count - 1);
-						break;
-					case '%':
-						bns_putchar(format[bns_index + 1]);
-						bns_index++;
-						break;
-					default:
-						bns_putchar(format[bns_index]);
-						bns_index++;
-				}
+				case 'c':
+					bns_putchar(va_arg(bns_list, int));
+					bns_index++;
+					break;
+				case 's':
+					bns_str_count = bns_puts(va_arg(bns_list, char *));
+					bns_index++;
+					bns_count = (bns_count + bns_str_count - 1);
+					break;
+				case '%':
+					bns_putchar(format[bns_index + 1]);
+					bns_index++;
+					break;
+				default:
+					bns_putchar(format[bns_index]);
+					bns_index++;
 			}
 		}
 		bns_count++;
