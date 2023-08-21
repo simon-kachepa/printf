@@ -21,7 +21,6 @@ int _printf(const char *format, ...)
 		if (format[bns_index] != '%')
 		{
 			bns_putchar(format[bns_index]);
-			bns_index++;
 		}
 		else
 		{
