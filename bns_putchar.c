@@ -4,7 +4,7 @@
 /**
  * bns_putchar - A function that prints one character at a time
  * @c: A character to be printed
- * Return: The size of c
+ * Return: The size of c 
  */
 
 int bns_putchar(char c)
