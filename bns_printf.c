@@ -34,8 +34,7 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					bns_str_count = bns_puts(va_arg(bns_list, char *));
-					bns_index++;
-					bns_count = (bns_count + bns_str_count);
+					bns_index++, bns_count += bns_str_count;
 					break;
 				case '%':
 					bns_putchar(format[bns_index + 1]);
@@ -43,7 +42,7 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					bns_putchar(format[bns_index]);
-					bns_index++, bns_count++;
+					bns_count++;
 			}
 		}
 	}
