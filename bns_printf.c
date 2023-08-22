@@ -18,8 +18,10 @@ int _printf(const char *format, ...)
 	for (bns_index = 0; format[bns_index] != '\0'; bns_index++)
 	{
 		if (format[bns_index] != '%')
+		{
 			bns_putchar(format[bns_index]);
 			bns_count++;
+		}
 		else
 		{
 			if (format[bns_index + 1] == '\0')
