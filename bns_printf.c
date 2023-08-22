@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 					bns_index++, bns_count += bns_str_count;
 					break;
 				case '%':
-					bns_putchar(format[bns_index + 1]);
+					bns_putchar('%');
 					bns_index++, bns_count++;
 					break;
 				default:
