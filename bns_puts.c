@@ -1,4 +1,5 @@
 #include "main.h"
+#include <unistd.h>
 
 /**
  * bns_puts - A function that prints a string of characters
@@ -10,7 +11,12 @@ int bns_puts(char *str)
 {
 	int bns_index,  bns_count = 0;
 
-	if (str)
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	else
 	{
 		for (bns_index = 0; str[bns_index] != '\0'; bns_index++)
 		{
