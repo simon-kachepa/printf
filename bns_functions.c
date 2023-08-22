@@ -45,3 +45,37 @@ int print_num(va_list num)
 	}
 	return (bns_count);
 }
+
+/**
+ *A function that prints binary value of a number
+ * @num: Input number to be evaluated
+ * Return: nBytes of num
+ */
+int print_bin(va_list num)
+{
+	int status = 0, bns_count = 0, bns_index,left_shift, right_shift;
+	unsigned int position, number = va_arg(num, unsigned int);
+
+	bns_index = 0, left_shift = 1;
+	while ( bns_index < 32)
+	{
+		position = ((left_shift << (31 - bns_index)) & number);
+		if (position >> (31 - bns_index))
+		{
+			status = 1;
+		}
+		if (status)
+		{
+			right_shift = position >> (31 - bns_index);
+			bns_putchar(right_shift + '0');
+			bns_count++;
+		}
+		bns_index++;
+	}
+	if (bns_count == 0)
+	{
+		bns_count++;
+		bns_putchar('0');
+	}
+	return (bns_count);
+}

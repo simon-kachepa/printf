@@ -20,5 +20,6 @@ int bns_putchar(char c);
 int bns_puts(char *str);
 int (*case_func(const char y))(va_list);
 int print_num(va_list num);
+int print_bin(va_list num);
 
 #endif
