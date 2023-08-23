@@ -29,5 +29,6 @@ int print_pointer(va_list bns_list);
 int print_hex_ptr(unsigned int number);
 int print_string(va_list bns_list);
 int printf_string_reverse(va_list bns_list);
+int print_rot13(va_list bns_list);
 
 #endif
