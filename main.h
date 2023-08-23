@@ -21,5 +21,9 @@ int bns_puts(char *str);
 int (*case_func(const char y))(va_list);
 int print_num(va_list num);
 int print_bin(va_list num);
+int print_unsigned(va_list bns_list);
+int print_octal(va_list bns_list);
+int print_hexadecimal(va_list bns_list);
+int print_HEX(va_list bns_list);
 
 #endif
