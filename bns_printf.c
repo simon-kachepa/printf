@@ -66,6 +66,7 @@ int (*case_func(const char y))(va_list)
 		{'o', print_octal},
 		{'x', print_hexadecimal},
 		{'X', print_HEX},
+		{'p', print_pointer},
 		{'\0', NULL}
 	};
 	int bns_index;
