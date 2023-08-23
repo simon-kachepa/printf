@@ -27,5 +27,6 @@ int print_hexadecimal(va_list bns_list);
 int print_HEX(va_list bns_list);
 int print_pointer(va_list bns_list);
 int print_hex_ptr(unsigned int number);
+int print_string(va_list bns_list);
 
 #endif
