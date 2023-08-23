@@ -9,7 +9,7 @@ int print_hex_ptr(unsigned int number)
 {
 	int bns_index, bns_count;
 	int *array;
-	unsigned int number, tmp;
+	unsigned int tmp;
 
 	bns_count = 0;
 	tmp = number;

@@ -16,7 +16,7 @@ int print_pointer(va_list bns_list)
 	if (ptr == NULL)
 	{
 		bns_index = 0;
-		for (str[bns_index] != '\0')
+		while (str[bns_index] != '\0')
 		{
 			bns_putchar(str[bns_index]);
 			bns_index++;
