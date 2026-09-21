@@ -77,5 +77,6 @@ int print_bin(va_list num)
 		bns_count++;
 		bns_putchar('0');
 	}
+	
 	return (bns_count);
 }
